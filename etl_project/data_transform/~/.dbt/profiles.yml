@@ -1,0 +1,12 @@
+data_transform:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: your_host
+      port: 5432
+      user: elisha-a
+      pass: 1234
+      dbname: elisha-a
+      schema: public 

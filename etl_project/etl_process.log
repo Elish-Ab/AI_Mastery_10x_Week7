@@ -1,0 +1,11 @@
+2024-10-11 12:31:37,225 - INFO - Starting data extraction...
+2024-10-11 12:31:37,226 - INFO - Processing file: DoctorsET.json
+2024-10-11 12:31:37,252 - INFO - Processing file: EAHCI.json
+2024-10-11 12:31:37,320 - INFO - Processing file: yetenaweg.json
+2024-10-11 12:31:37,340 - INFO - Processing file: CheMed123.json
+2024-10-11 12:31:37,345 - INFO - Processing file: lobelia4cosmetics.json
+2024-10-11 12:31:37,420 - INFO - Combined dataframe shape: (5182, 3)
+2024-10-11 12:31:37,420 - INFO - Starting data transformation...
+2024-10-11 12:31:37,424 - INFO - Cleaned dataframe shape: (5182, 3)
+2024-10-11 12:31:37,424 - INFO - Loading data into the database...
+2024-10-11 12:31:38,237 - INFO - Data loaded successfully.

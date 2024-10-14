@@ -1,9 +1,10 @@
+import logging
 import os
 import json
 from telethon.sync import TelegramClient
 from telethon.errors import FloodWaitError, SessionPasswordNeededError
 from dotenv import load_dotenv
-import logging
+
 # Initialize logging
 logging.basicConfig(filename="telegram_scraper.log",
                     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -59,13 +60,15 @@ def scrape_telegram_channels():
                             "date": str(message.date)
                         })
                     
-                    # Collect media messages (images)
-                    if message.media:
+                    # Collect media messages (images only, exclude other media types)
+                    if message.photo:  # Only process images/photos
                         try:
-                            file_path = client.download_media(message.media, file=image_dir)
+                            file_path = client.download_media(message.photo, file=image_dir)
                             logging.info(f"Downloaded image: {file_path}")
                         except Exception as e:
-                            logging.error(f"Failed to download media from message {message.id}: {e}")
+                            logging.error(f"Failed to download image from message {message.id}: {e}")
+                    else:
+                        logging.info(f"Skipping non-image media in message {message.id}")
                 
                 # Save the scraped messages to a JSON file
                 json_file = f"{channel.split('/')[-1]}.json"

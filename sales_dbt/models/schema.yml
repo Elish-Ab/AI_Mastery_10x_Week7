@@ -1,0 +1,24 @@
+
+version: 2
+
+
+source :
+  - name: public
+    schema: public
+    table:
+      - name: raw_data
+
+models :
+  - name: sales_transformed
+    description: "sales data transformed"
+    columns:
+      - name: message_id
+        description: "message id"
+        data_tests:
+          - unique
+          - not_null
+      - name: message
+        description: "message"
+        data_tests:
+          - unique
+          - not_null
